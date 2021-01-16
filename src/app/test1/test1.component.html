@@ -1,0 +1,206 @@
+ <div class="head">
+     <div class="jumbotron">
+         <div class="container">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+             <div class="row">
+                 <div class="col-md-6">          
+                <div class="form-group">
+                    <label>Name
+                        <input type="text" class="form-control" formControlName ="name" 
+                        placeholder="name"
+                        [ngClass] ="{'is-invalid':  (name.touched || submitted) && name.invalid}">                    
+                    </label>
+                    <div  class="invalid-feedback">
+                        <div *ngIf="name.errors?.required">Required</div>
+                        <div *ngIf="name.errors?.minlength"> length Required</div>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                     <div class="form-group">
+                        <label>LastName
+                            <input type="text" class="form-control " formControlName="lname" 
+                            placeholder="lname"
+                            
+                            [ngClass]="{'is-invalid': (lname.touched || submitted) && lname.invalid}">
+                        </label>
+                        <div  class="invalid-feedback">
+                            <div *ngIf="lname.errors?.required">Required</div>
+                        </div>
+                    </div> 
+                     <div class="form-group">
+                         <label>DOB
+                             <input type="date" class="form-control" formControlName="dob">                             
+                         </label>                         
+                     </div>  
+                     <div class="form-group">
+                     <div class="form-check-inline">
+                         <label class="form-check-label"  >
+                         <input type="radio" class="form-check-input" formControlName="gender"  
+                         value="female"> Female
+                        </label>
+                     </div>               
+
+                     <div class="form-check-inline">
+                        <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" formControlName="gender"   value="male"  >Male
+                       </label>
+                    </div>
+                </div>
+
+                    <ul>Hobbies: 
+                   <li>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"  name="football" 
+                                  value="football" (change)="onCheckboxChange($event)" >
+                                  Football
+                            </label>
+                        </div>
+                    </div>
+                   </li> 
+                   <li>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="Reading" (change)="onCheckboxChange($event)"
+                                  value="Reading">Reading
+                            </label>
+                        </div>
+                    </div>
+                   </li> 
+                   <li>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="Travelling" (change)="onCheckboxChange($event)"
+                                  value="Travelling">Travelling
+                            </label>
+                        </div>
+                    </div>
+                   </li> 
+                   <li>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="Trekking" (change)="onCheckboxChange($event)"
+                                 value="Trekking">Trekking
+                            </label>
+                        </div>
+                    </div>
+                   </li> 
+                   <li>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox"  class="form-check-input" name="listening  " (change)="onCheckboxChange($event)"
+                                  value="listening  ">listening Music
+                            </label>
+                        </div>
+                    </div>
+                   </li> 
+                  
+            </ul>
+            </div>
+
+                    <div class="col-md-6 d-flex justify-content-center">
+                      <div>
+                          <div class="form-group">
+                              <label>Address
+                                  <input type="text" formControlName="addresstype" placeholder="address"
+                                  class="form-control">
+                              </label>
+                          </div>
+                          <div class="form-group">
+                            <label>country
+                                <select class="form-select form-control "   formControlName="country">                                    
+                                    <option data-countryCode="IN" value="1">India</option>
+                                    <option value="2">USA</option>
+                                    <option value="3">England</option>
+                                    <option value="4">Spain</option>
+                                    <option value="5">France</option>
+                                    <option value="5">Portugal</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>State
+                                <select class="form-select form-control" formControlName="state">                                    
+                                    <option value="1">Maharashtra</option>
+                                    <option value="2">Delhi</option>
+                                    <option value="3">Goa</option>
+                                    <option value="4">jammu</option>
+                                    <option value="5">manali</option>
+                                    <option value="5">karnataka</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>City
+                                <select class="form-select form-control " formControlName="city">                                    
+                                    <option value="1">Mumbai</option>
+                                    <option value="2">New-Mumbai</option>
+                                    <option value="3">Pune</option>
+                                    <option value="4">Nashik</option>
+                                    <option value="5">Nagpur</option>
+                                    <option value="5">Alibag</option>
+                                </select>
+                            </label>
+                        </div>
+                       
+                        <div class="tel ">
+                            <label >phoneno:
+                                 
+                                <input type="tel"   formControlName="phoneno" ng2TelInput 
+                                class="form-control" >
+                                <button id="btn12" class="btn btn-primary" (click)="function($event)" > button </button>
+                            </label>
+                        </div>
+                         
+                        <div> 
+                            <label for="">add menu 
+                                <input type="text" formControlName="addmenu" id="addmenu" class="form-control" > 
+                            </label>
+                            <div class="input-group-append">
+                                <span class="plus check" id="inputGroup-sizing-default">
+                                  
+                                    <i class="fa fa-plus"  (click)="additem()"  aria-hidden="true"></i>
+                              </span>
+                              </div>
+                        </div>
+                         
+                        <div class="input-group col-4" *ngFor="let items  of items"> 
+                            <div class="input-group-prepend">
+                                <!-- <span   class="input-group-text" >
+                                    <i class="material-icons md-36">remove</i>
+                                </span> -->
+                            </div>
+                            <input type="text" class="form-control" aria-label="Default"  value="{{items}}">
+                            <i class="fa fa-close"  (click)="remove(items)"></i>
+
+
+
+
+
+                        </div>
+
+                         
+
+
+        
+
+                      </div>
+                   </div>
+                    
+                   
+                </div> 
+                <div class="text-center">
+                    <button type="submit"   class="btn btn-primary">Submit</button>
+                </div>
+              
+            </form>          
+         </div>
+     </div>    
+ </div>
