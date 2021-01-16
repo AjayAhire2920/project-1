@@ -204,3 +204,54 @@
          </div>
      </div>    
  </div>
+
+
+
+
+
+
+
+
+
+
+
+<!--  
+ changecountry(e){
+    alert(e);
+    this.phoneCode=e;
+   
+ }
+
+  
+ <div  class="col-md-3 phne_cde">
+    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-select  placeholder="code" id="code" formControlName="code"  
+         >
+       <mat-option   *ngFor="let country1 of this.country1" [value]="country1.phoneCode"> {{country1.phoneCode}}</mat-option>
+    </mat-select>
+   </mat-form-field>
+  
+</div>
+
+
+
+submitForm = function(form: HTMLInputElement){
+     
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+    localStorage.setItem("reg_restname", form['reg_restname']);
+    localStorage.setItem('reg_fname', form['reg_fname']);
+    localStorage.setItem('reg_lname', form['reg_lname']);
+    localStorage.setItem('reg_email', form['reg_email']);
+    localStorage.setItem('reg_mobile',form['code'] + form['reg_mobile']);
+    localStorage.setItem('reg_line1', form['reg_line1']);
+    localStorage.setItem('reg_line2', form['reg_line2']);
+    localStorage.setItem('reg_city', form['reg_line2']);
+    localStorage.setItem('reg_street', form['reg_street']);    
+    localStorage.setItem('reg_zip', form['reg_zip']);
+    localStorage.setItem('reg_country', form['reg_country']); 
+    localStorage.setItem('currency', form['currency']); 
+    this.ff(11)
+  } -->
